@@ -574,7 +574,7 @@ end
 
 function has_target_specific_set(state, spell)
 
-	if next(sets[state][spell]) == nil then
+	if next(sets[state][spell]) then
 		return true
 	else
 		return false
