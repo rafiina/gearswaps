@@ -478,6 +478,7 @@ function midcast(spell)
 
 	equip(sets.midcast.default)
 	handle_magic('midcast', spell)
+	handle_ws(spell)
 	
 end
 
@@ -552,19 +553,31 @@ function handle_magic(state, spell)
 		equip(sets.precast.default)
 		return
 	end
-
-	equip(sets[state].default)
 	
-	spellname = identify_spell(spell) or 'default'
-
-	if sets[state][spellname] then
-		equip(sets[state][spellname])
-	elseif state == 'midcast' and sets[state][spellname][spell.target.type] then
+	local spellname = identify_spell(spell)
+	
+	if not sets[state][spellname] then
+		spellname = 'default'
+	end
+	
+	if has_target_specific_set(state, spellname) then
 		equip(sets[state][spellname][spell.target.type])
+	else
+		equip(sets[state][spellname])
 	end
 	
 	if CastMode.current == 'interruptdown' then
 		equip(sets.midcast.interrupt)
+	end
+
+end
+
+function has_target_specific_set(state, spell)
+
+	if next(sets[state][spell]) == nil then
+		return true
+	else
+		return false
 	end
 
 end
@@ -587,10 +600,6 @@ function identify_spell(spell)
 
 	if spell.name:match('^Cur') then
 		return 'Cure'
-	end
-	
-	if spell.name:match('^Bar') then
-		return 'Bar'
 	end
 	
 	if spell.name:match('^Regen') then
@@ -630,7 +639,9 @@ end
 
 function composure_inactive()
 
-	if not buffactive['Composure'] then
+	local composure_recast = windower.ffxi.get_ability_recasts()[50]
+
+	if not buffactive['Composure'] and composure_recast == 0 then
 		return true
 	end
 	
@@ -640,7 +651,9 @@ end
 
 function arts_inactive_and_required()
 
-	if player.sub_job == 'SCH' and not (buffactive['Light Arts'] or buffactive['Dark Arts']) then
+	local light_arts_recast = windower.ffxi.get_ability_recasts()[228]
+
+	if player.sub_job == 'SCH' and not (buffactive['Light Arts'] or buffactive['Dark Arts']) and light_arts_recast == 0 then
 		return true
 	end
 	
