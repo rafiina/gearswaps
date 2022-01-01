@@ -1,9 +1,9 @@
 -- Enable style lock
 
-send_command('wait 6;input /lockstyle 3')
+send_command('wait 2;input /lockstyle on;/wait 6;input /lockstyleset 3')
 
 function sub_job_change(new,old)
-	send_command('wait 2;input /lockstyle 3')
+	send_command('wait 2;input /lockstyleset 3')
 end
 
 function tableContains(table, item)
