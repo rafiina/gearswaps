@@ -1,0 +1,42 @@
+sets.midcast.healing             = {}
+
+sets.midcast.healing.cure        = {
+    main = 'Daybreak',
+    sub = "Sakpata's Sword",
+    ammo = 'Regal Gem',
+    head = { name = 'Vanya Hood', augments = { 'MP+50', '"Fast Cast"+10', 'Haste+2%', } },
+    body = { name = 'Viti. Tabard +3', augments = { 'Enhances "Chainspell" effect', } },
+    hands = 'Atrophy Gloves +3',
+    legs = 'Atrophy Tights +2',
+    feet = { name = 'Vanya Clogs', augments = { '"Cure" potency +5%', '"Cure" spellcasting time -15%', '"Conserve MP"+6', } },
+    neck = 'Twilight Torque',
+    waist = 'Cascade Belt',
+    left_ear = 'Lifestorm Earring',
+    right_ear = 'Beatific Earring',
+    left_ring = 'Stikini Ring',
+    right_ring = 'Stikini Ring',
+    back = { name = "Sucellos's Cape", augments = { 'MND+20', 'Mag. Acc+20 /Mag. Dmg.+20', 'MND+10', } }
+}
+
+sets.midcast.healing.cure.SELF   =
+{
+    set_combine(
+        sets.midcast.healing.cure,
+        {
+            right_ring = 'Kunaji Ring'
+        }
+    )
+}
+
+sets.midcast.healing.cure.PLAYER = sets.midcast.healing.cure
+
+sets.midcast.healing.cursna      =
+    set_combine(
+        sets.midcast.healing.default,
+        {
+            neck = 'Malison Medallion',
+            back = 'Oretania\'s Cape +1'
+        }
+    )
+
+sets.midcast['Healing Magic']    = sets.midcast.healing

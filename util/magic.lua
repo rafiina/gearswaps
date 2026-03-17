@@ -1,0 +1,40 @@
+-- TODO: Move reusable magic related code here. Example in comment below.
+
+-- function identify_spell_subset(spell)
+--     -- If we haven't made midcast sets for a spell type, just return a default
+--     if not sets.midcast[spell.skill] then
+--         return sets.midcast.default
+--     end
+--
+--     local set = sets.midcast[spell.skill]
+--
+--     if enfeeb_maps[spell.name] then
+--         if buffactive['Saboteur'] then
+--             set = set_combine(
+--                 set[enfeeb_maps[spell.name]],
+--                 set.saboteur
+--             )
+--         else
+--             set = set[enfeeb_maps[spell.name]]
+--         end
+--     elseif enhance_maps[spell.name] then
+--         set = set[enhance_maps[spell.name]]
+--
+--         target_type = spell.target.type
+--         if target_type == 'NPC' then
+--             target_type = 'PLAYER'
+--         end
+--
+--         if set[target_type] ~= nil then
+--             set = set[target_type]
+--         end
+--     elseif spell.name:match('^Cur') then
+--         set = set.cure
+--     elseif spell.name == 'Cursna' then
+--         set = set.cursna
+--     else
+--         set = set.default
+--     end
+--
+--     return set
+-- end
