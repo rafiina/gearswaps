@@ -1,3 +1,6 @@
+sets.idle = {}
+include('util/common')
+include('util/gearsets/common')
 -- Enable style lock
 
 send_command('wait 2;input /lockstyle on;/wait 6;input /lockstyleset 3')

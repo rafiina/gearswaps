@@ -14,6 +14,7 @@ sets.idle.turtle   = {
     right_ear = 'Grit Earring',
     left_ring = 'Defending Ring',
     right_ring = 'Ayanmo Ring',
+    back = SucellosCape.tp
 }
 
 sets.idle.refresh  = set_combine(
@@ -22,7 +23,7 @@ sets.idle.refresh  = set_combine(
         main = 'Daybreak',
         sub = 'Bolelabunga',
         ammo = 'Homiliary',
-        head = { name = 'Viti. Chapeau +2', augments = { 'Enfeebling Magic duration', 'Magic Accuracy', } },
+        head = { name = 'Viti. Chapeau +3', augments = { 'Enfeebling Magic duration', 'Magic Accuracy', } },
         body = 'Jhakri Robe +2'
     }
 )
@@ -31,5 +32,12 @@ sets.idle.MEvasion = set_combine(
     sets.idle.turtle,
     {
 
+    }
+)
+
+sets.idle.movement = set_combine(
+    sets.idle.turtle,
+    {
+        legs = 'Carmine Cuisses +1'
     }
 )

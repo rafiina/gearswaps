@@ -6,7 +6,7 @@ sets.ws = {}
 sets.ws['Savage Blade'] =
 {
     ammo = 'Coiste Bodhar',
-    head = 'Viti. Chapeau +2',
+    head = 'Viti. Chapeau +3',
     body = 'Nyame Mail',
     hands = 'Atrophy Gloves +3',
     legs = 'Nyame Flanchard',
@@ -41,7 +41,7 @@ sets.ws['Seraph Blade'] =
     set_combine(
         sets.ws['Sanguine Blade'],
         {
-            head = 'Viti. Chapeau +2',
+            head = 'Viti. Chapeau +3',
             left_ear = 'Moonshade Earring'
         }
     )

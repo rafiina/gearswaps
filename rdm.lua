@@ -1,7 +1,6 @@
 include('Modes.lua')
 
 require('rdm/spell_maps')
-include('util/helper_functions')
 
 -- initialize and import sets
 sets.idle = {}
@@ -14,6 +13,9 @@ include('rdm/gearsets/midcast')
 include('rdm/gearsets/tp')
 include('rdm/gearsets/idle')
 include('rdm/gearsets/precast')
+include('util/helper_functions')
+include('util/common')
+include('util/gearsets/common')
 -- Enable style lock
 
 send_command('wait 6; input /lockstyle on; wait 9; input /lockstyleset 4 echo')
@@ -126,9 +128,9 @@ function self_command(command)
             CastMode.current = commandArgs[2]
         end
     elseif command == 'lock' then
-        disable('main', 'sub', 'range')
+        disable('main', 'sub', 'range', 'ammo')
     elseif command == 'unlock' then
-        enable('main', 'sub', 'range')
+        enable('main', 'sub', 'range', 'ammo')
     elseif command == 'check_stances' then
         check_ja_stances()
     elseif command == 'tag_th' then

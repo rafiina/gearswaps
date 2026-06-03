@@ -67,7 +67,7 @@ sets.midcast.enfeebling.potency  =
             -- +7 MND, 10 effect. 20 macc lost
             ammo = 'Regal Gem',
             -- +16 MND. 13 macc lost
-            head = 'Viti. Chapeau +2',
+            head = 'Viti. Chapeau +3',
             -- Enfeeb effect +14
             body = 'Leth. Sayon +1',
             -- +7 MND, 8 macc lost
@@ -114,7 +114,7 @@ sets.midcast.enfeebling.frazzle  =
             ammo = 'Regal Gem',
             body = 'Leth. Sayon +1',
             -- +22 skill, -13 macc
-            head = 'Viti. Chapeau +2'
+            head = 'Viti. Chapeau +3'
         }
     )
 
@@ -133,7 +133,7 @@ sets.midcast.enfeebling.poison   =
             -- +10 effect, -20 macc
             ammo = 'Regal Gem',
             -- +22 skill, -13 macc
-            head = 'Viti. Chapeau +2'
+            head = 'Viti. Chapeau +3'
         }
     )
 

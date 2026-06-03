@@ -1,10 +1,11 @@
 local state_processing = false
-local count = 0
 
 require('util/helper_functions')
 -- load class related luas
 require('war/ja_maps')
 require('war/helpers')
+include('util/gearsets/common')
+include('util/common')
 -- Enable style lock
 
 --send_command('wait 6; input /lockstyle; wait 9; input /lockstyleset 3 echo')
@@ -160,7 +161,6 @@ function handle_magic(state, spell)
     local set = {}
 
     if state == 'precast' then
-        check_ja_stances()
         set = sets.precast.default
         return set
     end
