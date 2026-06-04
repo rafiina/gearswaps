@@ -20,3 +20,5 @@ SucellosCape              = {}
 SucellosCape.tp           = { name = "Sucellos's Cape", augments = { 'DEX+20', 'Accuracy+20 Attack+20', 'Accuracy+10', '"Store TP"+10', 'Phys. dmg. taken -10%', } }
 SucellosCape.mndacc       = { name = "Sucellos's Cape", augments = { 'MND+20', 'Mag. Acc+20 /Mag. Dmg.+20', 'MND+10', } }
 SucellosCape.ws           = { name = "Sucellos's Cape", augments = { 'STR+20', 'Accuracy+20 Attack+20', 'STR+7', 'Weapon skill damage +10%', } }
+
+LetharyEarring            = { name = 'Lethargy Earring', augments = { 'System: 1 ID: 1676 Val: 0', 'Accuracy+7', 'Mag. Acc.+7', } }

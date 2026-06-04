@@ -3,7 +3,7 @@ sets.midcast.enfeebling          = {}
 -- Maximizes accuracy.
 sets.midcast.enfeebling.accuracy =
     set_combine(
-        sets.midcast.default,
+        sets.midcast.enfeebling,
         {
             -- comments are contributed magic accuracy
             -- If a piece ties, max MND is chosen as tie breaker
@@ -24,14 +24,14 @@ sets.midcast.enfeebling.accuracy =
             -- 54 + 13 enfeeb skill = 67
             legs = { name = 'Chironic Hose', augments = { 'Pet: Phys. dmg. taken -4%', 'Mag. Acc.+14', 'Mag. Acc.+20 "Mag.Atk.Bns."+20', } },
             -- 50
-            feet = 'Viti. Boots +3',
+            feet = 'Vitiation Boots +3',
             -- 20
             neck = { name = "Duelist's Torque", augments = { 'Path: A', } },
             -- 8
             waist = 'Ovate Rope',
             -- 12 with both ears as set
-            left_ear = 'Lifestorm Earring',
-            right_ear = 'Psystorm Earring',
+            left_ear = 'Malignance Earring',
+            right_ear = LetharyEarring,
             -- 8 + 5 enfeeb skill
             left_ring = 'Stikini Ring',
             -- 8 + 5 enfeeb skill
@@ -46,10 +46,10 @@ sets.midcast.enfeebling.accuracy =
 -- This is a common base set for others
 sets.midcast.enfeebling.duration =
     set_combine(
-        sets.midcast.accuracy,
+        sets.midcast.enfeebling.accuracy,
         {
             head = 'Leth. Chappel +1',
-            body = 'Leth. Sayon +1',
+            body = 'Lethargy Sayon +1',
             hands = 'Leth. Gantherots +1',
             legs = 'Leth. Fuseau +1',
             feet = 'Leth. Houseaux +2',
@@ -69,7 +69,7 @@ sets.midcast.enfeebling.potency  =
             -- +16 MND. 13 macc lost
             head = 'Viti. Chapeau +3',
             -- Enfeeb effect +14
-            body = 'Leth. Sayon +1',
+            body = 'Lethargy Sayon +1',
             -- +7 MND, 8 macc lost
             waist = 'Cascade Belt',
             -- +8 MND, 2 macc lost
@@ -83,7 +83,7 @@ sets.midcast.enfeebling.blind    =
         sets.midcast.enfeebling.accuracy,
         {
             -- +10 INT, -11 macc
-            main = 'Kaja Sword',
+            main = 'Naegling',
             -- +10 INT, -5 macc
             sub = 'Kaja Knife',
             range = empty,
@@ -112,7 +112,7 @@ sets.midcast.enfeebling.frazzle  =
             range = empty,
             -- +10 effect, -20 macc
             ammo = 'Regal Gem',
-            body = 'Leth. Sayon +1',
+            body = 'Lethargy Sayon +1',
             -- +22 skill, -13 macc
             head = 'Viti. Chapeau +3'
         }

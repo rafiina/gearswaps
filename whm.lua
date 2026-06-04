@@ -58,7 +58,6 @@ function get_sets()
         ammo = 'Incantor Stone',
         head = VanyaHood.fastcast,
         ear1 = 'Malignance Earring',
-        left_ring = 'Weatherspoon ring',
         back = AlaunusCape.fastcast,
     }
 
@@ -123,20 +122,18 @@ function get_sets()
 
     sets.midcast.Cure         =
     {
-        main = 'Daybreak',               -- 30%
-        sub = 'Sors Shield',             -- 3%
-        ammo = 'Incantor Stone',         -- 2% FC
-        head = 'Vanya Hood',             -- 10%
-        ear1 = 'Malignance Earring',     -- 5% FC
-        ear2 = 'Beatific Earring',       -- 4 skill
-        body = 'Ayanmo Corazza +2',      -- 6% DT, 4% haste
-        hands = 'Ayanmo Manopolas +2',   -- 3% DT, 4% haste
-        left_ring = 'Weatherspoon ring', -- 5% FC
-        right_ring = "Sirona's Ring",    -- 3 MND, 3 VIT, 10 skill
-        back = "Oretania's Cape +1",     -- 6%
-        waist = 'Othila Sash',           -- 10% spell interruption
-        legs = 'Ebers Pantaloons +1',    -- 6% MP return
-        feet = 'Vanya Clogs'             -- 5%, 20 skill
+        main = 'Daybreak',             -- 30%
+        sub = 'Sors Shield',           -- 3%
+        ammo = 'Incantor Stone',       -- 2% FC
+        head = 'Vanya Hood',           -- 10%
+        ear1 = 'Malignance Earring',   -- 5% FC
+        body = 'Ayanmo Corazza +2',    -- 6% DT, 4% haste
+        hands = 'Ayanmo Manopolas +2', -- 3% DT, 4% haste
+        right_ring = "Sirona's Ring",  -- 3 MND, 3 VIT, 10 skill
+        back = "Oretania's Cape +1",   -- 6%
+        waist = 'Othila Sash',         -- 10% spell interruption
+        legs = 'Ebers Pantaloons +1',  -- 6% MP return
+        feet = 'Vanya Clogs'           -- 5%, 20 skill
     }
 end
 

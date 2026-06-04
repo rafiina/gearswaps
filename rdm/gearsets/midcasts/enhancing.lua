@@ -11,11 +11,12 @@ sets.midcast.enhancing.duration        = {}
 -- are both members of the same table
 sets.midcast.enhancing.duration.base   =
     set_combine(
-        sets.midcast.default,
+        sets.midcast.enhancing.duration,
         {
             hands = 'Atrophy Gloves +3',
             feet = 'Leth. Houseaux +2',
             neck = 'Duelist\'s Torque',
+            right_ear = LetharyEarring,
             waist = 'Embla Sash',
             -- Ghostfyre duration is multiplicative instead of additive like Sucello!
             back = Ghostfyre.default
@@ -36,7 +37,7 @@ sets.midcast.enhancing.duration.PLAYER =
         sets.midcast.enhancing.duration.base,
         {
             head = 'Leth. Chappel +1',
-            body = 'Leth. Sayon +1',
+            body = 'Lethargy Sayon +1',
             hands = 'Leth. Gantherots +1',
             legs = 'Leth. Fuseau +1',
             feet = 'Leth. Houseaux +2',
@@ -54,7 +55,7 @@ sets.midcast.enhancing.skill           =
             legs = 'Atrophy Tights +2',
             neck = 'Enhancing Torque',
             waist = 'Olympus Sash',
-            right_ear = 'Andoaa Earring',
+            left_ear = 'Andoaa Earring',
             left_ring = 'Stikini Ring',
             right_ring = 'Stikini Ring',
             back = Ghostfyre.default

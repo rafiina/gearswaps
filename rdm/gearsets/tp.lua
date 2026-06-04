@@ -17,7 +17,7 @@ sets.tp.dt = {
     -- 4%
     feet = 'Malignance Boots',
     neck = 'Anu Torque',
-    waist = 'Sailfi Belt',
+    waist = 'Sailfi Belt +1',
     right_ear = 'Dedition Earring',
     left_ear = 'Suppanomimi',
     -- 10%

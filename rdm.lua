@@ -49,6 +49,7 @@ function get_sets()
     sets.midcast.enfeebling.default = sets.midcast.enfeebling.duration
     sets.midcast.enhancing.default = sets.midcast.enhancing.duration
     sets.midcast.healing.default = sets.midcast.healing.cure.SELF
+    sets.midcast.elemental.default = sets.midcast.elemental.potency
 
     sets.tp.default = sets.tp.standard
 
@@ -72,6 +73,7 @@ end
 -- User Event Functions
 
 function precast(spell)
+    print(spell.name)
     local set = handle_magic('precast', spell)
     if set == nil then
         set = handle_ws(spell)
@@ -81,6 +83,7 @@ function precast(spell)
 end
 
 function midcast(spell)
+    print(spell.name)
     local set = handle_magic('midcast', spell)
 
     if set == nil then
@@ -168,6 +171,7 @@ function update_equip(equip_set)
 end
 
 function handle_magic(state, spell)
+    print(spell.name)
     if spell.action_type ~= 'Magic' then
         return
     end
@@ -184,6 +188,10 @@ function handle_magic(state, spell)
 
     if spell.skill == 'Enfeebling Magic' and buffactive['Saboteur'] then
         set = set_combine(set, sets.midcast.enfeebling.saboteur)
+    end
+
+    if spell.skill == 'Elemental Magic' then
+        set = set_combine(set, sets.midcast.elemental.default)
     end
 
     if CastMode.current == 'interruptdown' then
@@ -209,6 +217,8 @@ function identify_spell_subset(spell)
     end
 
     local set = sets.midcast[spell.skill]
+
+    print(spell.skill)
 
     if enfeeb_maps[spell.name] then
         if buffactive['Saboteur'] then
@@ -278,246 +288,4 @@ function arts_inactive_and_required()
     end
 
     return false
-end
-
--------------------------------------------
---|     On screen text box creation     |--
--------------------------------------------
-
--- Displays info about current mode states and what weaponskill is bound to F10 in text box at the bottom of the screen
-local function init_display()
-    -- Function Author: Rubenator
-    -- Onscreen text box
-    ui_x_res = windower.get_windower_settings().ui_x_res
-    separator = ' | ' -- Used with onscreen boxes
-    -- Settings
-    gearinfotxt = {
-        pos = {
-            x = 1100,
-            y = -30,
-        },
-        text = {
-            font = 'Consolas',
-            size = 14,
-            stroke = {
-                width = 1.5,
-                alpha = 255,
-            },
-        },
-        flags = {
-            bottom = true,
-            right = false,
-            bold = true,
-        },
-        bg = {
-            visible = false,
-            alpha = 120,
-        },
-        padding = 1,
-    }
-    require('chat')
-    box_data = L { -- Stays in this order
-        { name = 'WSbind',  mode_name = 'ws_bind' },
-        { name = 'TP', mode_name = 'tpM', colorize = function (value)
-            if value == 'Fodder' then
-                return 'bxwhite'
-            else
-                return 'bxorange'
-            end
-            return
-        end },
-        { name = 'DT',      type = 'toggle',      mode_name = 'is_dtM' },
-        { name = 'WS DT',   type = 'toggle',      mode_name = 'is_wsdtM' },
-        { name = 'WS Proc', type = 'toggle',      mode_name = 'is_wsprocM' },
-        { name = 'Auto WS', type = 'toggle',      mode_name = 'is_autoWSM' },
-    }
-    -- Place job specific toggles and modes below
-    box_job_data = T {
-        BLM = L {
-            { name = 'MACC',             type = 'toggle', mode_name = 'is_maccM' },
-            { name = 'MB',               type = 'toggle', mode_name = 'is_mbM' },
-            { name = 'Death Idle',       type = 'toggle', mode_name = 'is_deathidleM' },
-            { name = 'Spaekona\'s Coat', type = 'toggle', mode_name = 'is_SpaekonaM' },
-        },
-        BLU = L {},
-        BRD = L {
-            { name = 'Dummy', type = 'toggle', mode_name = 'is_dummysongM' },
-        },
-        BST = L {},
-        COR = L {
-            { name = 'Luzaf', type = 'toggle', mode_name = 'is_luzafM' },
-            { name = 'Flurry', mode_name = 'flurryM', colorize = function (value)
-                if value == 'No Flurry' then
-                    return 'bxorange'
-                elseif value == 'Flurry 1' then
-                    return 'bxyellow'
-                elseif value == 'Flurry 2' then
-                    return 'bxgreen'
-                end
-                return
-            end },
-        },
-        DNC = L {
-            { name = 'DW', mode_name = 'hasteM', colorize = function (value)
-                if value == 'Haste Max' then
-                    return 'bxgreen'
-                elseif value == 'Haste 30%' then
-                    return 'bxyellow'
-                elseif value == 'Haste 15%' then
-                    return 'bxorange'
-                elseif value == 'Haste 0%' then
-                    return 'bxred'
-                end
-                return
-            end },
-        },
-        DRG = L {},
-        DRK = L {},
-        GEO = L {
-            { name = 'MACC',    type = 'toggle', mode_name = 'is_maccM' },
-            { name = 'MB',      type = 'toggle', mode_name = 'is_mbM' },
-            { name = 'WpnSwap', type = 'toggle', mode_name = 'is_wpnSwapM' },
-            { name = 'Occult',  type = 'toggle', mode_name = 'is_occultM' },
-        },
-        MNK = L {
-            { name = 'Impfoot',   type = 'toggle', mode_name = 'is_impfootM' },
-            { name = 'Verehands', type = 'toggle', mode_name = 'is_verehandsM' },
-        },
-        NIN = L {
-            { name = 'DW', mode_name = 'hasteM', colorize = function (value)
-                if value == 'Haste Max' then
-                    return 'bxgreen'
-                elseif value == 'Haste 30%' then
-                    return 'bxyellow'
-                elseif value == 'Haste 15%' then
-                    return 'bxorange'
-                elseif value == 'Haste 0%' then
-                    return 'bxred'
-                end
-                return
-            end },
-        },
-        PLD = L {},
-        PUP = L {},
-        RDM = L {
-            { name = 'MACC', type = 'toggle', mode_name = 'is_maccM' },
-            { name = 'MB',   type = 'toggle', mode_name = 'is_mbM' },
-            { name = 'CastWpnSwap', mode_name = 'CastWpnSwapM', colorize = function (value)
-                if value == 'Casting Swaps' then
-                    return 'bxyellow'
-                elseif value == 'Casting/Idle Swaps' then
-                    return 'bxgreen'
-                elseif value == 'No Swaps' then
-                    return 'bxorange'
-                end
-                return
-            end },
-        },
-        RNG = L {
-            { name = 'Flurry', mode_name = 'flurryM', colorize = function (value)
-                if value == 'No Flurry' then
-                    return 'bxorange'
-                elseif value == 'Flurry 1' then
-                    return 'bxyellow'
-                elseif value == 'Flurry 2' then
-                    return 'bxgreen'
-                end
-                return
-            end },
-        },
-        RUN = L {},
-        SAM = L {},
-        SCH = L {
-            { name = 'MACC', type = 'toggle', mode_name = 'is_maccM' },
-            { name = 'MB',   type = 'toggle', mode_name = 'is_mbM' },
-        },
-        SMN = L {},
-        THF = L {
-            { name = 'TH', mode_name = 'thM', colorize = function (value)
-                if value then
-                    return 'bxgreen'
-                end
-                return
-            end },
-        },
-        WAR = L {},
-        WHM = L {},
-    }
-    local box_job_data_lookup = box_job_data[player.main_job]
-    if box_job_data_lookup then
-        box_data = box_data:extend(box_job_data_lookup)
-    end
-    _box_map = T {}
-    _box_mode_map = T {}
-    --function string.color_by_name(str, color_name)
-    --    return str:text_color(unpack(colors[color_name]))
-    --end
-
-    function update_box_value(name, value)
-        local char_width = 0.7565 * gearinfotxt.text.size
-        if value == nil or not name then return end
-        local data = _box_map[name]
-        if not data then return end
-        local colorize = data.colorize
-        if data.type == 'toggle' then
-            colorize = colorize or function (value)
-                return value and 'bxgreen' or 'bxgrey'
-            end
-            local color = colorize(value)
-            --gearinfo[name] = (value and 'ON' or 'Off'):color_by_name(color)
-            gearinfo[name] = name --:color_by_name(color)
-        else
-            local str = tostring(value)
-            local color = colorize and colorize(str) or 'bxwhite'
-            gearinfo[name] = color --str:color_by_name(color)
-        end
-        local char_width = 0.7565 * gearinfotxt.text.size
-        local char_count = gearinfo:text():text_strip_format():length()
-        local box_width = char_count * char_width + (gearinfotxt.padding or 0) * 2
-        local x_pos = ui_x_res / 2 - box_width / 2
-        if gearinfotxt.flags.right then -- just in case
-            x_pos = pos_x - ui_x_res
-        end
-        gearinfo:pos_x(x_pos)
-    end
-
-    gearinfo = nil
-    do
-        for v in box_data:it() do
-            _box_map[v.name] = v
-            if v.mode_name then
-                _box_mode_map[v.mode_name] = v
-            end
-        end
-        local box_names = box_data:map(function (data) return data.name end)
-        box_names = box_names:map(function (name)
-            local data = _box_map[name]
-            if data.type == 'toggle' then
-                --return string.format('%sd ${%s}',
-                --    (data.display_name or name):color_by_name(data.color or 'bxwhite'), name)
-                return string.format('${%s}', name)
-            else
-                --return string.format('%s %s', (data.display_name or name):color_by_name(data.color or 'bxwhite'),
-                --    string.format('${%s}', name):color_by_name('bxgreen'))
-                return string.format('%s', string.format('${%s}', name)) --:color_by_name('bxgreen'))
-            end
-        end)
-        gearinfo = texts.new(' ' .. box_names:concat(separator) .. ' ', gearinfotxt)
-        gearinfo:show()
-    end
-
-    function init_box()
-        for mode_name, mode in pairs(state) do
-            local data = _box_mode_map[mode_name]
-            if type(mode) == 'table' then
-                if data and data.name and mode.value ~= nil then
-                    update_box_value(data.name, mode.value)
-                end
-            elseif data and data.name then
-                update_box_value(data.name, mode)
-            end
-        end
-    end
-
-    init_box:schedule(0.1)
 end

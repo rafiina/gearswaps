@@ -36,6 +36,10 @@ enfeeb_maps = {
     ['Repose'] = 'potency'
 }
 
+elemental_magic = {
+    ['Stone V'] = 'potency'
+}
+
 enhance_maps = {
     ['Barfire'] = 'bar',
     ['Barstone'] = 'bar',

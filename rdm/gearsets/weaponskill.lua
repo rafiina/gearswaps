@@ -24,15 +24,15 @@ sets.ws['Savage Blade'] =
 sets.ws['Sanguine Blade'] = {
     ammo = 'Sroda Tathlum',
     head = 'Pixie Hairpin +1',
-    body = 'Nyame Mail',
+    body = 'Jhakri Robe +2',
     hands = 'Atrophy Gloves +3',
-    legs = 'Nyame Flanchard',
+    legs = 'Jhakri Slops +2',
     feet = 'Jhakri Pigaches +2',
     waist = 'Othila Sash',
-    left_ring = 'Persis Ring',
-    right_ring = 'Shiva Ring',
-    left_ear = 'Friomisi Earring',
-    right_ear = 'Malignance Earring',
+    left_ring = 'Shiva Ring',
+    right_ring = 'Persis Ring',
+    left_ear = 'Malignance Earring',
+    right_ear = 'Friomisi Earring',
     back = SucellosCape.ws
 }
 
@@ -115,7 +115,8 @@ sets.ws['Aeolian Edge'] =
     set_combine(
         sets.ws['Sanguine Blade'],
         {
-            left_ear = 'Moonshade Earring'
+            head = 'Jhakri Coronal +2',
+            right_ear = 'Moonshade Earring'
         }
     )
 

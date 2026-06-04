@@ -12,6 +12,5 @@ sets.precast.default = {
     waist = 'Witful Belt',
     -- 4%
     left_ear = 'Malignance Earring',
-    -- 5%
-    left_ring = 'Weather. Ring'
+    right_ear = LetharyEarring
 }
