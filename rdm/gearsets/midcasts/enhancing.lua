@@ -14,7 +14,7 @@ sets.midcast.enhancing.duration.base   =
         sets.midcast.default,
         {
             hands = 'Atrophy Gloves +3',
-            feet = 'Leth. Houseaux +1',
+            feet = 'Leth. Houseaux +2',
             neck = 'Duelist\'s Torque',
             waist = 'Embla Sash',
             -- Ghostfyre duration is multiplicative instead of additive like Sucello!
@@ -39,7 +39,7 @@ sets.midcast.enhancing.duration.PLAYER =
             body = 'Leth. Sayon +1',
             hands = 'Leth. Gantherots +1',
             legs = 'Leth. Fuseau +1',
-            feet = 'Leth. Houseaux +1',
+            feet = 'Leth. Houseaux +2',
         }
     )
 

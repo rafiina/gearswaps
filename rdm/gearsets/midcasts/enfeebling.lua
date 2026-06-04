@@ -52,7 +52,7 @@ sets.midcast.enfeebling.duration =
             body = 'Leth. Sayon +1',
             hands = 'Leth. Gantherots +1',
             legs = 'Leth. Fuseau +1',
-            feet = 'Leth. Houseaux +1',
+            feet = 'Leth. Houseaux +2',
             back = SucellosCape.mndacc
         }
     )
