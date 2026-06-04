@@ -73,7 +73,6 @@ end
 -- User Event Functions
 
 function precast(spell)
-    print(spell.name)
     local set = handle_magic('precast', spell)
     if set == nil then
         set = handle_ws(spell)
@@ -83,7 +82,6 @@ function precast(spell)
 end
 
 function midcast(spell)
-    print(spell.name)
     local set = handle_magic('midcast', spell)
 
     if set == nil then
