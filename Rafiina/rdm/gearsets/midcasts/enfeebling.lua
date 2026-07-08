@@ -15,23 +15,24 @@ sets.midcast.enfeebling.accuracy =
             sub = 'Daybreak',
             -- 35
             range = 'Kaja Bow',
+            ammo = empty,
             -- 50
-            head = 'Atrophy Chapeau +3',
+            head = 'Atrophy Chapeau +4',
             -- 45 + 19 enfeeb skill + 0 * (15 per atrophy +2/+3 or regal piece) = 64
             body = 'Atrophy Tabard +2',
             -- 24 + 19 enfeeb skill = 43
-            hands = 'Leth. Gantherots +1',
+            hands = 'Leth. Ganth. +3',
             -- 54 + 13 enfeeb skill = 67
             legs = { name = 'Chironic Hose', augments = { 'Pet: Phys. dmg. taken -4%', 'Mag. Acc.+14', 'Mag. Acc.+20 "Mag.Atk.Bns."+20', } },
             -- 50
             feet = 'Vitiation Boots +3',
             -- 20
-            neck = { name = "Duelist's Torque", augments = { 'Path: A', } },
+            neck = 'Null Loop',
             -- 8
             waist = 'Ovate Rope',
             -- 12 with both ears as set
             left_ear = 'Malignance Earring',
-            right_ear = LetharyEarring,
+            right_ear = 'Snotra Earring',
             -- 8 + 5 enfeeb skill
             left_ring = 'Stikini Ring',
             -- 8 + 5 enfeeb skill
@@ -41,19 +42,29 @@ sets.midcast.enfeebling.accuracy =
         }
     )
 
--- For debuffs that don't get resisted, so we use the default midcast as base
--- which is probably a turtle/refresh set
+-- For debuffs that don't get resisted. Stacks DT.
 -- This is a common base set for others
 sets.midcast.enfeebling.duration =
     set_combine(
         sets.midcast.enfeebling.accuracy,
         {
-            head = 'Leth. Chappel +1',
-            body = 'Lethargy Sayon +1',
-            hands = 'Leth. Gantherots +1',
-            legs = 'Leth. Fuseau +1',
-            feet = 'Leth. Houseaux +2',
-            back = SucellosCape.mndacc
+            range = empty,
+            ammo = 'Regal Gem',
+            head = 'Leth. Chappel +2',
+            -- 5 DT
+            neck = 'Twilight Torque',
+            -- 5 DT
+            left_ear = 'Alabaster Earring',
+            body = 'Lethargy Sayon +3',
+            hands = 'Leth. Ganth. +3',
+            -- 10 DT
+            left_ring = 'Defending Ring',
+            -- 10 DT
+            right_ring = 'Murky Ring',
+            legs = 'Leth. Fuseau +2',
+            feet = 'Leth. Houseaux +3',
+            -- 10 PDT
+            back = SucellosCape.tp
         }
     )
 
@@ -67,13 +78,11 @@ sets.midcast.enfeebling.potency  =
             -- +7 MND, 10 effect. 20 macc lost
             ammo = 'Regal Gem',
             -- +16 MND. 13 macc lost
-            head = 'Viti. Chapeau +3',
+            head = 'Viti. Chapeau +4',
             -- Enfeeb effect +14
-            body = 'Lethargy Sayon +1',
+            body = 'Lethargy Sayon +3',
             -- +7 MND, 8 macc lost
-            waist = 'Cascade Belt',
-            -- +8 MND, 2 macc lost
-            right_ear = 'Malignance Earring',
+            waist = 'Cascade Belt'
         }
     )
 
@@ -91,8 +100,6 @@ sets.midcast.enfeebling.blind    =
             ammo = 'Regal Gem',
             -- +11 INT, -6 macc
             head = 'Jhakri Coronal +2',
-            -- +12 INT, -18 macc
-            body = 'Jhakri Robe +2',
             -- +17 INT, -0 macc
             hands = 'Jhakri Cuffs +2',
             -- +33 INT, -8 macc
@@ -112,9 +119,9 @@ sets.midcast.enfeebling.frazzle  =
             range = empty,
             -- +10 effect, -20 macc
             ammo = 'Regal Gem',
-            body = 'Lethargy Sayon +1',
+            body = 'Lethargy Sayon +3',
             -- +22 skill, -13 macc
-            head = 'Viti. Chapeau +3'
+            head = 'Viti. Chapeau +4'
         }
     )
 
@@ -133,7 +140,7 @@ sets.midcast.enfeebling.poison   =
             -- +10 effect, -20 macc
             ammo = 'Regal Gem',
             -- +22 skill, -13 macc
-            head = 'Viti. Chapeau +3'
+            head = 'Viti. Chapeau +4'
         }
     )
 
@@ -152,7 +159,7 @@ sets.midcast.enfeebling.gravity  =
 
 -- TODO: This set needs to be set_combine with another.
 sets.midcast.enfeebling.saboteur    = {
-    hands = 'Leth. Gantherots +1'
+    hands = 'Leth. Ganth. +3'
 }
 
 -- TODO: Use with a stance to swap in immunobreak gear

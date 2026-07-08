@@ -13,8 +13,8 @@ sets.midcast.enhancing.duration.base   =
     set_combine(
         sets.midcast.enhancing.duration,
         {
-            hands = 'Atrophy Gloves +3',
-            feet = 'Leth. Houseaux +2',
+            hands = 'Atrophy Gloves +4',
+            feet = 'Leth. Houseaux +3',
             neck = 'Duelist\'s Torque',
             right_ear = LetharyEarring,
             waist = 'Embla Sash',
@@ -36,11 +36,11 @@ sets.midcast.enhancing.duration.PLAYER =
     set_combine(
         sets.midcast.enhancing.duration.base,
         {
-            head = 'Leth. Chappel +1',
-            body = 'Lethargy Sayon +1',
-            hands = 'Leth. Gantherots +1',
-            legs = 'Leth. Fuseau +1',
-            feet = 'Leth. Houseaux +2',
+            head = 'Leth. Chappel +2',
+            body = 'Lethargy Sayon +3',
+            hands = 'Leth. Ganth. +3',
+            legs = 'Leth. Fuseau +2',
+            feet = 'Leth. Houseaux +3',
         }
     )
 
@@ -52,7 +52,8 @@ sets.midcast.enhancing.skill           =
             head = 'Befouled Crown',
             main = 'Pukulatmuj +1',
             body = 'Viti. Tabard +3',
-            legs = 'Atrophy Tights +2',
+            hands = 'Viti. Gloves +3',
+            legs = 'Atrophy Tights +3',
             neck = 'Enhancing Torque',
             waist = 'Olympus Sash',
             left_ear = 'Andoaa Earring',
@@ -66,7 +67,7 @@ sets.midcast.enhancing.gain            =
     set_combine(
         sets.midcast.enhancing.skill,
         {
-            hands = 'Viti. Gloves +2'
+            hands = 'Viti. Gloves +3'
         }
     )
 
@@ -75,7 +76,7 @@ sets.midcast.enhancing.refresh         = {}
 sets.midcast.enhancing.refresh.base    =
 {
     body = 'Atrophy Tabard +2',
-    legs = 'Leth. Fuseau +1'
+    legs = 'Leth. Fuseau +2'
 }
 
 sets.midcast.enhancing.refresh.SELF    =
@@ -117,12 +118,12 @@ sets.midcast.enhancing.regen.base      =
     legs = { name = 'Taeon Tights', augments = { '"Regen" potency+3', } }
 }
 
-sets.midcast.enhancing.regen.SELF      = {
+sets.midcast.enhancing.regen.SELF      = 
     set_combine(
         sets.midcast.enhancing.duration.SELF,
         sets.midcast.enhancing.regen.base
     )
-}
+
 
 sets.midcast.enhancing.regen.PLAYER    =
     set_combine(

@@ -6,25 +6,23 @@ sets.midcast.healing.cure        = {
     ammo = 'Regal Gem',
     head = { name = 'Vanya Hood', augments = { 'MP+50', '"Fast Cast"+10', 'Haste+2%', } },
     body = { name = 'Viti. Tabard +3', augments = { 'Enhances "Chainspell" effect', } },
-    hands = 'Atrophy Gloves +3',
-    legs = 'Atrophy Tights +2',
+    hands = 'Atrophy Gloves +4',
+    legs = 'Atrophy Tights +3',
     feet = { name = 'Vanya Clogs', augments = { '"Cure" potency +5%', '"Cure" spellcasting time -15%', '"Conserve MP"+6', } },
     neck = 'Twilight Torque',
     waist = 'Cascade Belt',
     left_ear = 'Lifestorm Earring',
     left_ring = 'Stikini Ring',
     right_ring = 'Stikini Ring',
-    back = { name = "Sucellos's Cape", augments = { 'MND+20', 'Mag. Acc+20 /Mag. Dmg.+20', 'MND+10', } }
+    back = SucellosCape.mndacc
 }
 
 sets.midcast.healing.cure.SELF   =
-{
     set_combine(
         sets.midcast.healing.cure,
         {
         }
     )
-}
 
 sets.midcast.healing.cure.PLAYER = sets.midcast.healing.cure
 

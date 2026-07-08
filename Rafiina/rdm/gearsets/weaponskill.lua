@@ -6,11 +6,11 @@ sets.ws = {}
 sets.ws['Savage Blade'] =
 {
     ammo = 'Coiste Bodhar',
-    head = 'Viti. Chapeau +3',
+    head = 'Viti. Chapeau +4',
     body = 'Nyame Mail',
-    hands = 'Atrophy Gloves +3',
+    hands = 'Atrophy Gloves +4',
     legs = 'Nyame Flanchard',
-    feet = 'Jhakri Pigaches +2',
+    feet = 'Leth. Houseaux',
     neck = 'Anu Torque',
     waist = 'Sailfi Belt +1',
     left_ear = { name = 'Moonshade Earring', augments = { '"Mag.Atk.Bns."+4', 'TP Bonus +250', } },
@@ -24,9 +24,9 @@ sets.ws['Savage Blade'] =
 sets.ws['Sanguine Blade'] = {
     ammo = 'Sroda Tathlum',
     head = 'Pixie Hairpin +1',
-    body = 'Jhakri Robe +2',
-    hands = 'Atrophy Gloves +3',
-    legs = 'Jhakri Slops +2',
+    body = 'Lethargy Sayon +3',
+    hands = 'Jhakri Cuffs +2', -- These are BiS...
+    legs = 'Leth. Fuseau +2',
     feet = 'Jhakri Pigaches +2',
     waist = 'Othila Sash',
     left_ring = 'Shiva Ring',
@@ -41,7 +41,7 @@ sets.ws['Seraph Blade'] =
     set_combine(
         sets.ws['Sanguine Blade'],
         {
-            head = 'Viti. Chapeau +3',
+            head = 'Leth. Chappel +2',
             left_ear = 'Moonshade Earring'
         }
     )
@@ -115,7 +115,7 @@ sets.ws['Aeolian Edge'] =
     set_combine(
         sets.ws['Sanguine Blade'],
         {
-            head = 'Jhakri Coronal +2',
+            head = 'Leth. Chappel +2',
             right_ear = 'Moonshade Earring'
         }
     )

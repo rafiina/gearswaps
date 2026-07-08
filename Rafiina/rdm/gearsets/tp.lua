@@ -1,8 +1,8 @@
+sets.tp = {}
+
 -- 46% DT, capped on pdt at 56%
 sets.tp.dt = {
     -- 10%
-    main = 'Sakpata\'s Sword',
-    sub = 'Daybreak',
     ammo = 'Coiste Bodhar',
     -- We don't set a range slot so we can use ammo for WS
     --range = 'Kaja Bow',
@@ -17,12 +17,12 @@ sets.tp.dt = {
     -- 4%
     feet = 'Malignance Boots',
     neck = 'Anu Torque',
-    waist = 'Sailfi Belt +1',
-    right_ear = 'Dedition Earring',
+    waist = 'Windbuffet Belt +1',
+    right_ear = 'Alabaster Earring',
     left_ear = 'Suppanomimi',
     -- 10%
-    left_ring = 'Defending Ring',
-    right_ring = 'Chirich Ring',
+    left_ring = { name = 'Chirich Ring', bag = 'wardrobe3' },
+    right_ring = 'Murky Ring',
     -- 10% physical
     back = SucellosCape.tp
 }
@@ -45,6 +45,7 @@ sets.tp.standard = {
     -- We don't set a range slot so we can use ammo for WS
     --range = 'Kaja Bow',
     -- 3 stp
+    range = empty,
     ammo = 'Coiste Bodhar',
     -- 8 stp
     head = 'Malignance Chapeau',
@@ -74,14 +75,16 @@ sets.tp.standard = {
 -- on the fly using a variable to indicate a specific state (aka stance)
 
 -- stance set
-sets.tp.hybrid = {
-    {
-        left_ring = 'Defending Ring'
-    }
-}
+sets.tp.hybrid =
+    set_combine(
+        sets.tp.standard,
+        {
+            left_ring = 'Defending Ring'
+        }
+    )
 
 -- stance set
-sets.tp.highacc = {
+sets.tp.highacc =
     set_combine(
         sets.tp.standard,
         {
@@ -89,12 +92,20 @@ sets.tp.highacc = {
             right_ear = 'Mache Earring',
         }
     )
-}
 
 -- stance set
 sets.tp.enspell = {
+    ammo = 'Sroda Tathlum',
     hands = 'Aya. Manopolas +2'
 }
+
+sets.tp.enstone = 
+    set_combine(
+        sets.tp.enspell.base,
+        {
+            neck = 'Quanpur Necklace'
+        }
+    )
 
 -- stance set
 sets.tp.bow = {

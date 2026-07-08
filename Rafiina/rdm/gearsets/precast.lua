@@ -1,7 +1,9 @@
+sets.precast = {}
+
 -- Capped at 80%
 sets.precast.default = {
     -- 16%
-    head = 'Atrophy Chapeau +3',
+    head = 'Atrophy Chapeau +4',
     -- 14%
     body = { name = 'Viti. Tabard +3', augments = { 'Enhances "Chainspell" effect', } },
     -- 5%

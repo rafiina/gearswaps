@@ -1,3 +1,4 @@
+sets.midcast = {}
 include('rdm/gearsets/midcasts/elemental')
 include('rdm/gearsets/midcasts/enfeebling')
 include('rdm/gearsets/midcasts/enhancing')

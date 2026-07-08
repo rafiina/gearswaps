@@ -1,12 +1,21 @@
 res = require('resources')
 
+local helpers = {}
+
+function helpers.tableContains(table, item)
+    for key, value in pairs(table) do
+        if value == item then return true end
+    end
+    return false
+end
+
 -- Dump tables for print in console or chat
-function dump(o)
+function helpers.dump(o)
     if type(o) == 'table' then
         local s = '{ '
         for k, v in pairs(o) do
             if type(k) ~= 'number' then k = '"' .. k .. '"' end
-            s = s .. '[' .. k .. '] = ' .. dump(v) .. ',\n'
+            s = s .. '[' .. k .. '] = ' .. helpers.dump(v) .. ',\n'
         end
         return s .. '} '
     else
@@ -15,13 +24,13 @@ function dump(o)
 end
 
 -- Check if dualwielding
-function dual_wielding()
+function helpers.dual_wielding()
     local item_data = get_equipped_item_data('sub')
     return item_data ~= 'empty' and item_data.skill and not S { 0, 30 }:contains(item_data.skill)
 end
 
 -- example usage: get_equipped_item_data('main')
-function get_equipped_item_data(slot)
+function helpers.get_equipped_item_data(slot)
     local item = gearswap.items
         [gearswap.to_windower_bag_api(gearswap.res.bags[gearswap.items.equipment[slot].bag_id].en)]
         [gearswap.items.equipment[slot].slot]
@@ -43,14 +52,14 @@ windower.register_event('outgoing chunk', function (id, data)
     end
 end)
 
-function HeadingTo(X, Y)
+function helpers.HeadingTo(X, Y)
     local X = X - windower.ffxi.get_mob_by_id(windower.ffxi.get_player().id).x
     local Y = Y - windower.ffxi.get_mob_by_id(windower.ffxi.get_player().id).y
     local H = math.atan2(X, Y)
     return H - 1.5708
 end
 
-function TurnToTarget(target_id)
+function helpers.TurnToTarget(target_id)
     local destX
     local destY
     if target_id then
@@ -68,7 +77,7 @@ function TurnToTarget(target_id)
     end
 end
 
-function get_job_ability_by_name(name)
+function helpers.get_job_ability_by_name(name)
     local abilities = windower.ffxi.get_abilities()
     local composure_recast = windower.ffxi.get_ability_recasts()
 
@@ -80,3 +89,5 @@ function get_job_ability_by_name(name)
 
     return abilities_by_name[name]
 end
+
+return helpers

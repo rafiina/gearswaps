@@ -1,11 +1,8 @@
-local state_processing = false
-
-require('util/helper_functions')
 -- load class related luas
 require('war/ja_maps')
 require('war/helpers')
 include('util/gearsets/common')
-include('util/common')
+local common = include('lib/common')
 -- Enable style lock
 
 --send_command('wait 6; input /lockstyle; wait 9; input /lockstyleset 3 echo')
@@ -227,7 +224,7 @@ function identify_spell_subset(spell)
 end
 
 -- TODO: Make generic for easier use elsewhere
-local use_weaponskill = function ()
+function use_weaponskill ()
     player = windower.ffxi.get_player()
 
     mob = windower.ffxi.get_mob_by_target('t')
@@ -258,7 +255,7 @@ local use_weaponskill = function ()
         windower.send_command('input /assist Kichito')
     end
 
-    state_processing = false
+    common.state_processing = false
 end
 
 function buff_change(buff, gain)
@@ -268,23 +265,3 @@ function buff_change(buff, gain)
         windower.send_command('input /ja "corsair\'s roll" <me>')
     end
 end
-
-windower.register_event('prerender', function ()
-    -- state_machine()
-    --windower.add_to_chat(17, 'finding target')
-
-    if not state_processing then
-        --windower.add_to_chat(17, 'test')
-        state_processing = true
-        --coroutine.schedule(use_weaponskill, 1.0)
-    end
-end)
-
-windower.register_event('zone change', function (new, old)
-    local western_adoulin = 256
-    local eastern_adoulin = 257
-
-    if new == western_adoulin or new == eastern_adoulin then
-        equip(sets.idle.adoulin)
-    end
-end)
